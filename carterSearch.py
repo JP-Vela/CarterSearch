@@ -25,16 +25,25 @@ Prompt format for summary with Carter:
 """
 
 class CarterSearch():
-        def __init__(self):
+        def __init__(self, key=None, player_id=None, post_prompt=None):
                 self.ddgs = DDGS()
                 self.key = "3eafe49d-8753-472d-88ef-54e9736c5541" # Use for testing
                 self.player = "defaultPlayer"
+                self.speak = "False"
 
                 # Last part of the prompt to steer the output into a simple answer
                 # May need adjusting according to personality
                 self.post_prompt = "Don't say according to where you got the answer, just answer the question"
-                self.speak = "False"
 
+                # Modify parameters
+                if key != None:
+                        self.key=key
+                if player_id != None:
+                        self.player=player_id
+                if post_prompt != None:
+                        self.post_prompt = post_prompt
+                #if speak != None:
+                #        self.speak = speak
 
         # Get 3 results from DuckDuckGo and put them together
         def DuckDuckSearch(self, query):
@@ -60,6 +69,11 @@ class CarterSearch():
                 response = carter_request(text, self.key, self.player, self.speak)
        
                 ret = {'output': response['output']['text']}
+
+                # maybe for later...
+                #if self.speak:
+                #        ret['data'] = {'audio': response['output']['audio']}
+
                 return ret
         
 
