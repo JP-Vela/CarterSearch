@@ -18,3 +18,4 @@ This results in more of an answer rather than just the scraped text.
 
 
 **Default Post Prompt:** *"Don't say according to where you got the answer, just answer the question"*
+![alt text](https://github.com/JP-Vela/CarterSearch/blob/main/example.png?raw=true)
